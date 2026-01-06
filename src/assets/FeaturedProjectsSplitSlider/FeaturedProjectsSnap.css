@@ -1,0 +1,355 @@
+.hdsSec, .hdsSec * { box-sizing: border-box;
+margin: 0; }
+
+:root{
+  --hdBlue:#2f6fb3;
+  --hdBlueDeep:#0b2a55;
+  --hdYellow:#f2c94c;
+
+  --ink:#071a34;
+  --muted:#5b667a;
+
+  --bd: rgba(7,26,52,0.12);
+  --sh: 0 18px 40px rgba(10,25,52,0.12);
+ 
+}
+
+.hdsSec{
+  padding: 1rem 0;
+  background: #fdfafa;
+   padding-bottom: 4rem;
+}
+
+.hdsIn{
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 0 1.1rem;
+}
+/* .hdsHeadTxt{
+    display:flex;
+  align-items:center;
+} */
+/* .hdsHead{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+} */
+ /* .hdsHead{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.hdsHeadTxt{
+  text-align: center;
+  grid-column: 1 / -1;
+}
+
+.hdsAllBtn{
+  justify-self: end; 
+} */
+ .hdsHead{
+  display: grid;
+  grid-template-columns: 1fr auto 1fr; 
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.hdsHeadTxt{
+  grid-column: 2;       
+  text-align: center;
+}
+
+.hdsAllBtn{
+  grid-column: 3;        
+  justify-self: end;
+  align-self: start;     
+  margin-right: 3rem;
+  margin-top: 1.2rem;
+}
+
+.hdsTitle{
+  margin:0;
+  font-weight: 950;
+  letter-spacing: .02em;
+  
+  color: var(--ink);
+  font-size: clamp(1.6rem, 2.6vw, 2.15rem);
+}
+
+.hdsSub{
+  margin: 6px 0 0 0;
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.hdsAllBtn{
+  border: 1px solid var(--bd);
+  background: rgba(47,111,179,0.07);
+  color: var(--ink);
+  padding: .72rem 1.05rem;
+  border-radius: 5rem;
+  cursor:pointer;
+  font-weight: 900;
+  /* margin-bottom: 0; */
+}
+.hdsAllBtn:focus,
+.hdsAllBtn:focus-visible{
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
+
+.hdsRail{
+  display:flex;
+  gap: 1.4rem;
+  overflow-x: auto;
+  padding: 10px 6px 18px 6px;
+
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+
+  cursor: grab;
+}
+.hdsRail:active{ cursor: grabbing; }
+.hdsRail::-webkit-scrollbar{ display:none; }
+
+/* Cards */
+.hdsCard{
+  scroll-snap-align: center;
+  flex: 0 0 340px;
+  border-radius: 2rem;
+  overflow: hidden;
+  border: 1px solid var(--bd);
+  background: #fff;
+  box-shadow: var(--sh);
+
+  cursor: pointer;
+  outline: none;
+  position: relative;
+
+  /* قبل reveal */
+  opacity: 0;
+  transform: translateY(14px) scale(0.90);
+  transition: transform 280ms ease, opacity 280ms ease, box-shadow 280ms ease, border-color 280ms ease;
+}
+
+/* Reveal */
+.hdsCard.is-revealed{
+  opacity: 0.72;
+  transform: scale(0.94);
+}
+
+/* Active */
+.hdsCard.is-active{
+  opacity: 1;
+  transform: scale(1);
+  border-color: rgba(47,111,179,0.28);
+  box-shadow: 0 24px 56px rgba(10,25,52,0.16);
+}
+
+/* Hover pop-out */
+.hdsCard:hover{
+  transform: translateY(-10px) scale(1.02);
+  opacity: 1;
+  border-color: rgba(47,111,179,0.40);
+  box-shadow: 0 30px 70px rgba(10,25,52,0.20);
+}
+
+/* Active glow */
+.hdsCard::after{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius: 24px;
+  pointer-events:none;
+  opacity: 0;
+  transition: opacity 280ms ease;
+  box-shadow:
+    0 0 0 1px rgba(47,111,179,0.35),
+    0 0 34px rgba(47,111,179,0.22);
+}
+.hdsCard.is-active::after,
+.hdsCard:hover::after{
+  opacity: 1;
+}
+
+/* Focus */
+.hdsCard:focus-visible{
+  box-shadow: 0 0 0 4px rgba(242,201,76,0.45), 0 30px 70px rgba(10,25,52,0.20);
+}
+
+/* Media */
+.hdsMedia{
+  position: relative;
+  height: 230px;
+  overflow:hidden;
+}
+
+.hdsImg{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display:block;
+  transform: scale(1);
+  transition: transform 650ms ease;
+}
+
+.hdsCard:hover .hdsImg{
+  transform: scale(1.06);
+}
+
+.hdsOv{
+  position:absolute;
+  inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.42));
+}
+
+.hdsChip{
+  position:absolute;
+  left: 12px;
+  top: 12px;
+  background: rgba(11,42,85,0.88);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: .72rem;
+  letter-spacing: .06em;
+  backdrop-filter: blur(8px);
+}
+
+/* Info */
+.hdsInfo{
+  padding: 14px 14px 16px 14px;
+}
+
+.hdsName{
+  margin: 0 0 10px 0;
+  color: var(--ink);
+  font-weight: 950;
+  line-height: 1.15;
+  font-size: 1.05rem;
+}
+
+.hdsMeta{
+  display:flex;
+  flex-direction:column;
+  gap: 6px;
+  color: var(--muted);
+  font-size: .93rem;
+  line-height: 1.4;
+}
+
+.hdsRow{
+  display:flex;
+  gap: 10px;
+}
+
+.hdsK{
+  min-width: 70px;
+  font-weight: 950;
+  color: var(--ink);
+}
+
+.hdsV{
+  color: var(--muted);
+}
+
+.hdsCta{
+  margin-top: 12px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(47,111,179,0.07);
+  border: 1px solid rgba(47,111,179,0.14);
+
+  transform: translateY(8px);
+  opacity: 0;
+  transition: transform 260ms ease, opacity 260ms ease;
+}
+.hdsCard:hover .hdsCta,
+.hdsCard.is-active .hdsCta{
+  transform: translateY(0);
+  opacity: 1;
+}
+.hdsCtaTxt{
+  font-weight: 950;
+  color: var(--hdBlueDeep);
+}
+
+.hdsCtaArrow{
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display:grid;
+  place-items:center;
+  background: linear-gradient(90deg, var(--hdYellow), #ffd75a);
+  color: #1b1b1b;
+  font-weight: 900;
+}
+
+/* Counter + dots */
+.hdsNav{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap: 14px;
+  margin-top: 6px;
+}
+
+.hdsCount{
+  font-weight: 950;
+  color: rgba(7,26,52,0.7);
+  letter-spacing: .08em;
+}
+
+.hdsDots{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
+
+.hdsDot{
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: none;
+  cursor:pointer;
+  background: rgba(7,26,52,0.25);
+}
+
+.hdsDot.is-active{
+  width: 26px;
+  background: linear-gradient(90deg, var(--hdYellow), #ffd75a);
+}
+
+.hdsHint{
+  text-align:center;
+  margin-top: 10px;
+  color: rgba(7,26,52,0.55);
+  font-size: .9rem;
+}
+
+@media (max-width: 768px){
+  .hdsHead{
+    align-items:flex-start;
+    flex-direction: column;
+  }
+  .hdsCard{
+    flex-basis: 300px;
+  }
+  .hdsMedia{ height: 210px; }
+}

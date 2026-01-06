@@ -1,0 +1,161 @@
+
+.ftx, .ftx * { box-sizing: border-box;
+ }
+
+.ftx{
+  position: relative;
+  padding: 4rem 0 1rem;
+  overflow: hidden;
+  color: rgba(255,255,255,0.86);
+  background: #050f22;
+  width: 100vw;
+  /* height: 30vh; */
+}
+
+.ftx__bg{
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(900px 420px at 22% 10%, rgba(58,123,255,0.16), transparent 60%),
+    radial-gradient(820px 420px at 70% 15%, rgba(35,92,190,0.12), transparent 62%),
+    linear-gradient(180deg, #050f22 0%, #061430 55%, #041027 100%);
+  filter: saturate(1.05);
+}
+
+.ftx__container{
+  position: relative;
+  width: min(1100px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.ftx__top{
+  display: grid;
+  grid-template-columns: 1.25fr .9fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.ftx__brand{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-right: 5rem;
+  margin-top: -1.7rem;
+}
+
+.ftx__logo{
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-top: .5rem;
+  filter: drop-shadow(0 10px 22px rgba(0,0,0,0.35));
+}
+
+.ftx__brandTitle{
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.ftx__brandSub{
+  margin-top: .1;
+  font-size: .9rem;
+  color: rgba(255,255,255,0.70);
+}
+
+.ftx__colTitle{
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: #fff;
+  /* margin-bottom: 14px; */
+}
+
+.ftx__list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+
+/* Links (Router) */
+.ftx__link{
+  color: rgba(255,255,255,0.78);
+  text-decoration: none;
+  display: inline-block;
+  transition: transform .18s ease, color .18s ease, opacity .18s ease;
+}
+
+.ftx__link:hover{
+  color: #fff;
+  transform: translateX(2px);
+}
+
+.ftx__link:focus,
+.ftx__link:active{
+  outline: none;
+}
+
+/* Contact Like Image */
+.ftx__contactList{
+    margin-top: 1rem;
+  display: grid;
+  gap: 1.2rem;
+}
+
+.ftx__contactRow{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ftx__iconCircle{
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(47,111,179,0.95);
+  color: #fff;
+  box-shadow: 0 14px 32px rgba(0,0,0,0.30);
+}
+
+.ftx__contactText{
+  font-size: 1rem;
+  color: rgba(255,255,255,0.82);
+  text-decoration: none;
+}
+
+a.ftx__contactText:hover{
+  color: #fff;
+}
+
+.ftx__divider{
+  margin-top: 2rem;
+  height: 1px;
+  background: rgba(255,255,255,0.12);
+}
+
+.ftx__bottom{
+  text-align: center;
+  padding-top: 1rem;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.55);
+}
+
+/* Responsive */
+@media (max-width: 980px){
+  .ftx__top{
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .ftx__iconCircle{
+    width: 52px;
+    height: 52px;
+  }
+  .ftx__contactText{
+    font-size: 16px;
+  }
+}
